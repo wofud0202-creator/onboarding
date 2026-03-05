@@ -469,11 +469,12 @@ body{font-family:'DM Sans','Noto Serif KR',sans-serif;background:var(--cream);co
 // ══════════════════════════════════════════════
 
 const PAGES = [
-  { id:'p1', num:'01', label:'회사소개',       sub:'About Belle & Beau' },
-  { id:'p2', num:'02', label:'교육 스케줄',     sub:'Training Schedule' },
-  { id:'p3', num:'03', label:'수료 체크리스트', sub:'Evaluation & Checklist' },
-  { id:'p4', num:'04', label:'브랜드 매뉴얼',   sub:'Brand Manual' },
-  { id:'p5', num:'05', label:'서비스 행동강령', sub:'Service Pledge' },
+  { id:'p0', num:'00', label:'첫 출근 준비',      sub:'First Day Guide' },
+  { id:'p1', num:'01', label:'회사소개',           sub:'About Belle & Beau' },
+  { id:'p2', num:'02', label:'교육 스케줄',        sub:'Training Schedule' },
+  { id:'p3', num:'03', label:'수료 체크리스트',    sub:'Evaluation & Checklist' },
+  { id:'p4', num:'04', label:'브랜드 매뉴얼',      sub:'Brand Manual' },
+  { id:'p5', num:'05', label:'서비스 행동강령',    sub:'Service Pledge' },
 ];
 
 // ─ 네비 생성 ─
@@ -488,8 +489,73 @@ PAGES.forEach((p,i) => {
 // ─ 페이지 렌더 ─
 const wrap = document.getElementById('main-wrap');
 
+// PAGE 0: 첫 출근 준비
+wrap.innerHTML += `<div class="page on" id="p0">
+  <div class="hero">
+    <div class="h-eye">First Day Guide</div>
+    <h1 class="h-ttl">첫 출근 전<br><em>준비사항</em></h1>
+    <div class="h-div"></div>
+    <p class="h-desc">첫 출근 전날, 아래 사항을 미리 확인해두세요.<br>준비가 잘 될수록 첫날이 편안합니다.</p>
+  </div>
+  <div class="pb">
+
+    <div class="sec-ttl">복장 안내</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px;">
+      <div class="v-card">
+        <div class="v-en">Top</div>
+        <div class="v-ko">흰색 와이셔츠</div>
+        <div class="v-desc">깔끔하게 다림질된 흰색 와이셔츠를 착용해주세요. 로고나 프린트가 없는 단색이어야 합니다.</div>
+      </div>
+      <div class="v-card">
+        <div class="v-en">Bottom</div>
+        <div class="v-ko">검은색 슬랙스</div>
+        <div class="v-desc">검은색 슬랙스 착용을 기본으로 합니다. 청바지·레깅스는 삼가주세요.</div>
+      </div>
+      <div class="v-card">
+        <div class="v-en">Shoes</div>
+        <div class="v-ko">편한 운동화</div>
+        <div class="v-desc">장시간 서서 근무하는 환경입니다. 발이 편한 운동화를 착용해주세요. 하이힐·샌들은 불가합니다.</div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--cream-dk);border-left:4px solid var(--gold);padding:22px 28px;margin-bottom:36px;font-family:'Noto Serif KR',serif;font-size:13.5px;color:var(--gray);line-height:2;font-weight:300;">
+      💅 <strong style="color:var(--burg);">네일아트는 지양</strong>해주세요. 식품을 다루는 환경 특성상 위생을 위해 화려한 네일아트는 삼가주시기 바랍니다.<br>
+      세부 복장 기준은 <strong style="color:var(--charcoal);">브랜드 매뉴얼 → 기본 매뉴얼</strong>을 참고해주세요.
+    </div>
+
+    <div class="sec-ttl">지참 서류</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px;">
+      <div class="ceo-card" style="padding:28px 28px;margin-bottom:0;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold-pale);margin-bottom:12px;">01</div>
+        <div style="font-family:'Noto Serif KR',serif;font-size:15px;font-weight:500;color:var(--burg);margin-bottom:8px;">보건증</div>
+        <div style="font-family:'Noto Serif KR',serif;font-size:12.5px;color:var(--gray);line-height:1.9;font-weight:300;">식품 취급 업종 필수 서류입니다. 발급 전이라면 가까운 보건소에서 미리 발급받아 오세요.</div>
+      </div>
+      <div class="ceo-card" style="padding:28px 28px;margin-bottom:0;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold-pale);margin-bottom:12px;">02</div>
+        <div style="font-family:'Noto Serif KR',serif;font-size:15px;font-weight:500;color:var(--burg);margin-bottom:8px;">신분증</div>
+        <div style="font-family:'Noto Serif KR',serif;font-size:12.5px;color:var(--gray);line-height:1.9;font-weight:300;">주민등록증 또는 운전면허증. 근로계약서 작성 시 필요합니다.</div>
+      </div>
+      <div class="ceo-card" style="padding:28px 28px;margin-bottom:0;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold-pale);margin-bottom:12px;">03</div>
+        <div style="font-family:'Noto Serif KR',serif;font-size:15px;font-weight:500;color:var(--burg);margin-bottom:8px;">통장 사본</div>
+        <div style="font-family:'Noto Serif KR',serif;font-size:12.5px;color:var(--gray);line-height:1.9;font-weight:300;">급여 지급을 위한 본인 명의 통장 사본이 필요합니다.</div>
+      </div>
+    </div>
+
+    <div class="sec-ttl">출근 시간 확인</div>
+    <div style="background:var(--burg);padding:32px 36px;display:flex;align-items:center;gap:28px;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:52px;color:rgba(184,151,90,.25);line-height:1;flex-shrink:0;">!</div>
+      <div>
+        <div style="font-family:'Noto Serif KR',serif;font-size:15px;color:var(--gold-lt);font-weight:500;margin-bottom:8px;">첫 출근 전날, 담당 매니저에게 출근 시간을 반드시 확인하세요.</div>
+        <div style="font-family:'Noto Serif KR',serif;font-size:13px;color:rgba(240,227,200,.6);font-weight:300;line-height:1.9;">매장 상황에 따라 출근 시간이 달라질 수 있습니다.<br>전날 확인 후 여유있게 출발해주세요.</div>
+      </div>
+    </div>
+
+  </div>
+</div>`;
+
 // PAGE 1: 회사소개
-wrap.innerHTML += `<div class="page on" id="p1">
+wrap.innerHTML += `<div class="page" id="p1">
   <div class="hero">
     <div class="h-eye">About Belle &amp; Beau</div>
     <h1 class="h-ttl">우리가 만드는<br><em>벨앤보</em></h1>
