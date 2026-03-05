@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belle & Beau — 직원 온보딩</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Noto+Serif+KR:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- ============================================================
+  ✏️  수정 가이드
+  ──────────────────────────────────────────────────────────────
+  이 파일에서 수정할 곳은 아래 CONFIG 섹션 하나뿐입니다.
+  HTML/CSS 코드는 건드리지 않아도 됩니다.
+
+  수정 방법:
+  - 텍스트: 따옴표("") 안의 내용만 바꾸세요
+  - 줄바꿈: \n 을 사용하세요
+  - 이미지: images/ 폴더에 같은 이름으로 덮어쓰세요
+============================================================ -->
+
+<script>
+const CONFIG = {
+
+  // ────────────────────────────────────────────────
+  // 01. 회사소개
+  // ────────────────────────────────────────────────
+  company: {
+    ceo_name: "이국현",
+    ceo_message: `벨앤보 가족이 된 여러분을 환영합니다.
+
+벨앤보는 지난 20년간 크고 작은 도전을 거치며 성장해온 회사입니다. 현재 30여 명의 팀원들과 함께 라테라스드파리, 만돈 두 브랜드를 운영하고 있으며, 앞으로도 지속적으로 성장해 나갈 계획입니다.
+
+우리의 목표는 단순합니다. 고객에게 오래 사랑받는 브랜드, 직원들이 자부심을 갖고 일할 수 있는 회사를 만드는 것입니다.
+
+여러분이 벨앤보에서 일하며 전문가로 성장할 수 있도록 회사도 함께 지원하겠습니다. 잘 부탁드립니다.`,
+
+    brands: [
+      {
+        name: "Belle & Beau",
+        sub: "그룹 브랜드",
+        desc: "멋진 사람들이 만드는 멋진 브랜드.\n라테라스드파리와 만돈을 운영하는 F&B 그룹입니다.",
+        image: "images/logo_bb.png",
+        type: "logo"
+      },
+      {
+        name: "La Terrasse de Paris",
+        sub: "프렌치 디저트 카페",
+        desc: "프렌치 클래식 무드를 현대적으로 재해석한 케이크 하우스.\n웨스턴돔 본점 · 현대백화점 킨텍스점",
+        image: "images/brand_terrasse.jpg",
+        type: "photo"
+      },
+      {
+        name: "만돈 滿豚",
+        sub: "프리미엄 돈카츠",
+        desc: "만족스러운 한상차림, 400시간 숙성 돈카츠.\n웨스턴돔 본점 · 현대백화점 킨텍스점",
+        image: "images/brand_mandon.jpg",
+        type: "photo"
+      }
+    ],
+
+    values: [
+      {
+        en: "Service",
+        ko: "마음을 움직이는 서비스",
+        desc: "인사 하나, 말투 하나, 목소리 하나로 고객의 하루를 바꿉니다. 우리의 서비스는 고객이 기억하는 경험이 됩니다."
+      },
+      {
+        en: "Branding",
+        ko: "오감으로 설계하는 브랜드 경험",
+        desc: "브랜드는 눈에 보이는 것만이 아닙니다. 고객이 문을 열고 들어서는 순간부터 — 시선을 사로잡는 공간, 코끝에 닿는 향기, 귀를 채우는 음악, 그리고 입 안에 남는 맛. 우리는 고객의 오감 하나하나를 의도적으로 설계합니다. 그 모든 감각이 하나의 일관된 이야기로 연결될 때, 비로소 브랜드가 됩니다."
+      },
+      {
+        en: "Quality",
+        ko: "매일, 똑같이, 맛있게",
+        desc: "오늘의 맛이 어제와 같아야 고객이 다시 옵니다. 일관된 품질이 신뢰가 되고, 신뢰가 브랜드가 됩니다."
+      }
+    ]
+  },
+
+  // ────────────────────────────────────────────────
+  // 02. 교육 스케줄
+  // ────────────────────────────────────────────────
+  training: {
+    summary: {
+      days: "3",
+      positions: "4",
+      pass_rate: "80%",
+      note: "4개 포지션 체크리스트 80% 이상 통과 후 팀장 확인 시 수료 인정"
+    },
+
+    tabs: [
+      {
+        id: "t_barista",
+        label: "라테라스 바리스타",
+        manager: "권혜연 매니저",
+        schedule: [
+          {
+            day: "1",
+            service: "오리엔테이션\n매장투어 + 온보딩교육 (0.5HR)",
+            ojt: "매장 전체 흐름 관찰\n리턴·홀정리 관찰 / 케이크 서빙·포장 관찰"
+          },
+          {
+            day: "2",
+            service: "서비스교육 이론\n기본·근무 매뉴얼 · 브랜드 철학 (0.5HR)",
+            ojt: "리턴·홀정리 동행 (0.5HR)\n케이크 서빙·포장 관찰→동행 (0.5HR)\n포스기·고객응대 관찰→동행 (0.5HR)"
+          },
+          {
+            day: "3",
+            service: "서비스교육 실습\n고객응대 롤플레이 + 전체 복습 (0.5HR)",
+            ojt: "픽업·세팅 관찰→동행 (0.5HR)\n수료 체크리스트 평가 (1HR)"
+          }
+        ],
+        positions: [
+          { num: "①", name: "리턴·홀정리", desc: "고객 반납 트레이 수거, 홀 테이블 정리·청소, 리턴바 관리" },
+          { num: "②", name: "케이크 서빙·포장", desc: "쇼케이스 케이크 접시 담기 및 서빙, 픽업 케이크 포장 처리" },
+          { num: "③", name: "포스기·고객응대", desc: "주문 접수 및 포스기 결제, 주문내용 복창, 고객 안내 멘트" },
+          { num: "④", name: "픽업·세팅", desc: "커피+케이크 트레이 세팅, 픽업 고객 응대 및 제품 설명" }
+        ]
+      },
+      { id: "t_patissier", label: "라테라스 파티시에", manager: "", schedule: [], positions: [], pending: true },
+      { id: "t_hall_t",    label: "라테라스 홀/서비스", manager: "", schedule: [], positions: [], pending: true },
+      { id: "t_hall_m",    label: "만돈 홀/서비스", manager: "", schedule: [], positions: [], pending: true },
+      { id: "t_kitchen",   label: "만돈 주방", manager: "", schedule: [], positions: [], pending: true }
+    ]
+  },
+
+  // ────────────────────────────────────────────────
+  // 03. 수료 평가
+  // ────────────────────────────────────────────────
+  evaluation: {
+    intro: "3일간의 신규교육을 마친 후, 아래 기준에 따라 수료 여부를 평가합니다.\n팀장이 직접 확인하며, 최종 수료 후 독립 실무에 투입됩니다.",
+    criteria: [
+      {
+        grade: "정식 수료",
+        icon: "✅",
+        condition: "체크리스트 80% 이상 통과",
+        result: "즉시 독립 실무 투입",
+        color: "#4A7C59"
+      },
+      {
+        grade: "조건부 수료",
+        icon: "⚠️",
+        condition: "1~2개 포지션 미통과",
+        result: "3일 추가 지도 후 재평가",
+        color: "#B8975A"
+      },
+      {
+        grade: "교육 연장",
+        icon: "🔄",
+        condition: "3개 이상 포지션 미통과",
+        result: "전체 OJT 재교육 진행",
+        color: "#5C1F2E"
+      }
+    ],
+    checklist_sections: [
+      {
+        title: "브랜드 & 서비스 이해",
+        items: [
+          { text: "벨앤보 브랜드 히스토리 및 미션 숙지", sub: "브랜드 소개 자료 완독 필수", required: true },
+          { text: "라테라스드파리 콘셉트 및 메뉴 이해", sub: "전 메뉴 맛 확인 및 설명 가능 수준", required: true },
+          { text: "만돈 콘셉트 및 메뉴 이해", sub: "돈카츠 종류별 특징 설명 가능", required: true },
+          { text: "서비스 강령 전문 숙지", sub: "", required: true },
+          { text: "고객 응대 스크립트 습득", sub: "인사말, 주문 접수, 배웅 멘트 포함", required: true },
+          { text: "고객 불만(VOC) 대응 원칙 이해", sub: "", required: true }
+        ]
+      },
+      {
+        title: "운영 & 실무 역량",
+        items: [
+          { text: "POS 시스템 주문 및 정산 실습 완료", sub: "", required: true },
+          { text: "Glide 근태 앱 등록 및 사용법 숙지", sub: "", required: true },
+          { text: "매장 오픈 & 클로징 체크리스트 1회 이상 수행", sub: "", required: true },
+          { text: "청결 기준 및 위생 수칙 실습 완료", sub: "", required: true },
+          { text: "유니폼 착용 및 그루밍 기준 확인", sub: "", required: true },
+          { text: "포장 방법 실습", sub: "테이크아웃 / 선물 포장", required: true },
+          { text: "재고 파악 및 발주 기초 이해", sub: "", required: false },
+          { text: "비상 상황 대응 매뉴얼 숙지", sub: "", required: true }
+        ]
+      },
+      {
+        title: "수료 확인",
+        items: [
+          { text: "브랜드 매뉴얼 전 챕터 열람 완료", sub: "", required: true },
+          { text: "팀장 1:1 면담 완료", sub: "", required: true },
+          { text: "동료 직원 소개 및 인사 완료", sub: "", required: false },
+          { text: "카카오톡 업무 채널 참여 완료", sub: "", required: true },
+          { text: "급여 및 근태 규정 확인 서명", sub: "", required: true },
+          { text: "온보딩 수료 평가 통과", sub: "", required: true }
+        ]
+      }
+    ],
+    google_sheet_url: "" // 배포 후 Apps Script 웹 앱 URL 입력
+  },
+
+  // ────────────────────────────────────────────────
+  // 04. 매뉴얼
+  // ────────────────────────────────────────────────
+  manual: {
+    chapters: [
+      {
+        id: "m1", num: "1", title: "기본 매뉴얼",
+        tabs: [
+          { label: "1페이지 — 수칙 ①~⑥", image: "images/manual_1_1.jpg", desc: "출근 시간·인사 방법·호칭 규정·대답 방식·에티켓·복장 위생 기준 등 매장 근무의 가장 기본이 되는 행동 수칙입니다." },
+          { label: "2페이지 — 수칙 ⑦~⑫", image: "images/manual_1_2.jpg", desc: "테라스의 기본자세, 실수 처리 방법, 손씻기, 핸드폰 사용 규정, 개인 텀블러·식사 기준 등 세부 수칙입니다." }
+        ]
+      },
+      {
+        id: "m2", num: "2", title: "근무 매뉴얼",
+        tabs: [
+          { label: "근무 원칙", image: "images/manual_2.jpg", desc: "주시·집중, 원칙·정량, 청소·위생, 미소·친절, 예상·대비, 매너·배려 — 근무 중 실천할 6가지 핵심 원칙입니다." }
+        ]
+      },
+      {
+        id: "m3", num: "3", title: "고객응대 매뉴얼",
+        tabs: [
+          { label: "① 기본응대", image: "images/manual_3_1.jpg", desc: "맞이·배웅 인사 멘트, 지나다닐 때 에티켓, 리뷰 확인 안내, 컴플레인 2단계 대응 프로세스를 포함합니다." },
+          { label: "② 픽업응대", image: "images/manual_3_2.jpg", desc: "픽업 고객 응대 멘트 세트(멘트+눈맞춤+손짓), 음료별 설명 방법, 트레이 2개 이상 처리 기준을 안내합니다." },
+          { label: "③ 리턴·홀정리", image: "images/manual_3_3.jpg", desc: "리턴 멘트 및 남은 음료 포장 안내, 홀 청소 확인 3종(테이블·의자·바닥), 상급자 보고 멘트를 포함합니다." },
+          { label: "④ 주문·계산", image: "images/manual_3_4.jpg", desc: "눈맞춤·미소, 매장 소개 멘트, 주문 대기 자세, 주문 복창, 결제 완료 및 이벤트 안내까지 전 과정입니다." }
+        ]
+      },
+      {
+        id: "m4", num: "4", title: "실전 매뉴얼",
+        tabs: [
+          { label: "① 음료서브", image: "images/manual_4_1.jpg", desc: "복창 방법, 잔 위생 확인, 저울·제빙기·핫 디스펜서 사용법, 음료 완성 알림 멘트까지 음료 서브 전 과정입니다." },
+          { label: "② 트레이 셋팅1", image: "images/manual_4_2.jpg", desc: "음료별 받침 기준, TEA 핫 기본 셋팅, 포크·나이프 수량·방향, 디저트 2개 이상 셋팅, 도일리 사용 기준을 안내합니다." },
+          { label: "③ 트레이 셋팅2", image: "images/manual_4_3.jpg", desc: "음료만 2잔, 디저트+음료 조합별 트레이 셋팅 6가지 케이스를 실제 사진과 함께 상세히 안내합니다." },
+          { label: "④ 포장·진열", image: "images/manual_4_4.jpg", desc: "케이크 접시 담기·포장, 스콘·구움과자 진열 및 포장, 음료 포장, 트레이 정리 방법을 자재별로 안내합니다." },
+          { label: "⑤ 세척·정리", image: "images/manual_4_5.jpg", desc: "리턴바 분리 기준, 싱크대 분류, 세척기 주의사항, 그릇 넣기, 트롤리 정리, 포크·나이프·스푼 세척을 단계별로 안내합니다." }
+        ]
+      }
+    ]
+  },
+
+  // ────────────────────────────────────────────────
+  // 05. 서비스 행동강령
+  // ────────────────────────────────────────────────
+  pledge: {
+    quote: "예의로 시작하여 예의로 끝나는 서비스,\n그것이 벨앤보가 고객에게 드리는 가장 기본적인 약속입니다.",
+    items: [
+      { num: "一", text: "우리는 예의로 시작하여 예의로 끝낸다." },
+      { num: "二", text: "우리는 고객의 눈을 바라보고, 먼저 밝게 인사한다." },
+      { num: "三", text: "우리는 고객이 원하는 것을 미리 예상하고, 한 발 먼저 행동한다." },
+      { num: "四", text: "우리는 청결한 손과 단정한 모습으로 매장에 선다." },
+      { num: "五", text: "우리는 정확히 듣고, 반드시 복창하여 확인한다." }
+    ],
+    oath: "나는 벨앤보의 일원으로서 이 강령을 이해하고,\n매 순간 고객과 동료에게 최선의 서비스를 제공할 것을\n스스로 약속합니다."
+  }
+
+}; // CONFIG 끝 — 이 아래는 수정하지 마세요
+</script>
+
+<style>
+:root{
+  --burg:#5C1F2E;--burg-deep:#3D1219;--burg-lt:#7D3344;
+  --gold:#B8975A;--gold-lt:#D4B07A;--gold-pale:#F0E3C8;
+  --cream:#FAF6EF;--cream-dk:#EDE4D4;
+  --charcoal:#2C2420;--gray:#8C7B72;
+  --tr:all 0.32s cubic-bezier(.25,.46,.45,.94);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans','Noto Serif KR',sans-serif;background:var(--cream);color:var(--charcoal);overflow-x:hidden;}
+
+/* ─ SIDEBAR ─ */
+.sb{position:fixed;left:0;top:0;width:260px;height:100vh;background:var(--burg-deep);z-index:100;display:flex;flex-direction:column;}
+.sb::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(184,151,90,.07) 0%,transparent 60%);pointer-events:none;}
+.sb-hd{padding:32px 24px 24px;border-bottom:1px solid rgba(184,151,90,.15);flex-shrink:0;}
+.sb-logo{width:130px;filter:brightness(0) invert(1);opacity:.88;}
+.sb-sub{font-size:10px;letter-spacing:.28em;color:rgba(184,151,90,.4);margin-top:8px;font-weight:300;text-transform:uppercase;}
+.nav{list-style:none;padding:16px 0;flex:1;overflow-y:auto;}
+.nb{display:flex;align-items:flex-start;gap:12px;padding:14px 24px;color:rgba(240,227,200,.45);text-decoration:none;font-size:13px;font-weight:300;line-height:1.5;transition:var(--tr);cursor:pointer;border:none;background:none;width:100%;text-align:left;position:relative;}
+.nb:hover,.nb.on{color:var(--gold-lt);background:rgba(184,151,90,.07);}
+.nb.on::before{content:'';position:absolute;left:0;top:22%;height:56%;width:3px;background:var(--gold);border-radius:0 2px 2px 0;}
+.nb-n{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:rgba(184,151,90,.45);flex-shrink:0;line-height:1;margin-top:2px;min-width:24px;}
+.nb.on .nb-n{color:var(--gold);}
+.nb-lbl{font-family:'Noto Serif KR',serif;font-size:12.5px;line-height:1.75;}
+.nb-sub{display:block;font-size:10px;opacity:.45;margin-top:1px;}
+.sb-ft{padding:16px 24px;border-top:1px solid rgba(184,151,90,.1);font-size:10px;color:rgba(184,151,90,.25);letter-spacing:.1em;font-family:'Cormorant Garamond',serif;font-style:italic;flex-shrink:0;}
+
+/* ─ MAIN ─ */
+.main{margin-left:260px;min-height:100vh;}
+.page{display:none;min-height:100vh;animation:fadeUp .38s ease;}
+.page.on{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─ HERO ─ */
+.hero{background:var(--burg);padding:52px 56px 44px;position:relative;overflow:hidden;}
+.hero::after{content:'';position:absolute;right:-60px;bottom:-60px;width:260px;height:260px;border:1px solid rgba(184,151,90,.07);border-radius:50%;pointer-events:none;}
+.hero::before{content:'';position:absolute;right:60px;bottom:40px;width:120px;height:120px;border:1px solid rgba(184,151,90,.05);border-radius:50%;pointer-events:none;}
+.h-eye{font-size:10px;letter-spacing:.35em;color:var(--gold);text-transform:uppercase;margin-bottom:14px;}
+.h-ttl{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--cream);line-height:1.2;letter-spacing:.02em;}
+.h-ttl em{font-style:italic;color:var(--gold-lt);}
+.h-div{width:38px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:13px 0;}
+.h-desc{font-family:'Noto Serif KR',serif;font-size:13.5px;color:rgba(250,246,239,.5);font-weight:300;line-height:2;max-width:480px;}
+.pb{padding:44px 56px;}
+
+/* ─ SECTION TITLE ─ */
+.sec-ttl{font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:14px;}
+.sec-ttl::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--gold-pale),transparent);}
+
+/* ─ PAGE 1: 회사소개 ─ */
+.ceo-card{background:#fff;border:1px solid var(--cream-dk);padding:44px 48px;margin-bottom:36px;position:relative;}
+.ceo-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--gold),var(--burg));}
+.ceo-label{font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:24px;}
+.ceo-body{font-family:'Noto Serif KR',serif;font-size:14.5px;line-height:2.5;color:var(--charcoal);font-weight:300;white-space:pre-line;}
+.sign-row{margin-top:32px;display:flex;align-items:flex-end;gap:16px;}
+.sign-ln{flex:1;height:1px;background:var(--cream-dk);}
+.sign-tx{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:var(--gray);text-align:right;line-height:1.8;}
+.sign-tx strong{display:block;font-size:19px;color:var(--burg);font-style:normal;font-weight:500;}
+.brand-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px;}
+.b-card{background:#fff;border:1px solid var(--cream-dk);overflow:hidden;}
+.b-img{width:100%;height:170px;object-fit:cover;display:block;}
+.b-logo-wrap{width:100%;height:170px;display:flex;align-items:center;justify-content:center;background:#fff;border-bottom:1px solid var(--cream-dk);}
+.b-logo-wrap img{max-width:220px;max-height:120px;object-fit:contain;}
+.b-info{padding:18px 20px 22px;}
+.b-name{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--burg);font-weight:500;margin-bottom:4px;}
+.b-sub{font-size:10px;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;}
+.b-desc{font-family:'Noto Serif KR',serif;font-size:12.5px;color:var(--gray);font-weight:300;line-height:2;white-space:pre-line;}
+.val-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.v-card{background:#fff;border:1px solid var(--cream-dk);border-top:3px solid var(--gold);padding:28px 24px;}
+.v-en{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--gold);margin-bottom:8px;font-style:italic;}
+.v-ko{font-family:'Noto Serif KR',serif;font-size:13.5px;font-weight:500;color:var(--burg);margin-bottom:8px;}
+.v-desc{font-family:'Noto Serif KR',serif;font-size:12.5px;color:var(--gray);line-height:2;font-weight:300;}
+
+/* ─ PAGE 2: 교육스케줄 ─ */
+.edu-banner{background:#fff;border:1px solid var(--cream-dk);padding:22px 28px;margin-bottom:28px;display:flex;gap:32px;align-items:center;flex-wrap:wrap;}
+.e-stat{text-align:center;}
+.e-num{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--burg);font-weight:300;line-height:1;}
+.e-lbl{font-size:9px;color:var(--gray);margin-top:3px;letter-spacing:.1em;}
+.e-div{width:1px;height:36px;background:var(--cream-dk);}
+.e-note{font-family:'Noto Serif KR',serif;font-size:12.5px;color:var(--gray);font-weight:300;line-height:1.9;}
+.tab-bar{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:22px;}
+.tb{padding:8px 15px;border:1px solid var(--cream-dk);background:#fff;font-family:'Noto Serif KR',serif;font-size:12.5px;color:var(--gray);cursor:pointer;transition:var(--tr);font-weight:300;}
+.tb:hover{border-color:var(--gold);color:var(--charcoal);}
+.tb.on{background:var(--burg);border-color:var(--burg);color:var(--gold-lt);}
+.tp{display:none;animation:fadeUp .3s ease;}
+.tp.on{display:block;}
+.sch-tbl{width:100%;border-collapse:collapse;background:#fff;margin-bottom:14px;}
+.sch-tbl th{background:var(--burg);color:var(--gold-lt);font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.15em;padding:13px 14px;text-align:left;font-weight:400;}
+.sch-tbl td{padding:14px;border-bottom:1px solid var(--cream-dk);font-family:'Noto Serif KR',serif;font-size:13px;color:var(--charcoal);font-weight:300;line-height:1.9;vertical-align:top;white-space:pre-line;}
+.sch-tbl tr:last-child td{border-bottom:none;}
+.d-badge{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--burg);font-weight:300;}
+.pos-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px;}
+.pos-card{padding:11px 14px;background:var(--cream);border:1px solid var(--cream-dk);font-family:'Noto Serif KR',serif;font-size:12.5px;font-weight:300;line-height:1.8;}
+.pos-card strong{color:var(--burg);font-weight:500;display:block;margin-bottom:3px;}
+.pend-box{background:#fff;border:1px solid var(--cream-dk);padding:52px 36px;text-align:center;}
+.pend-ico{font-family:'Cormorant Garamond',serif;font-size:40px;color:var(--gold-pale);margin-bottom:12px;font-style:italic;}
+.pend-ttl{font-family:'Noto Serif KR',serif;font-size:15px;color:var(--gray);margin-bottom:5px;}
+.pend-sub{font-size:12px;color:rgba(140,123,114,.5);font-family:'DM Sans',sans-serif;}
+
+/* ─ PAGE 3: 수료평가 ─ */
+.eval-intro{font-family:'Noto Serif KR',serif;font-size:14px;line-height:2.2;color:var(--charcoal);font-weight:300;white-space:pre-line;margin-bottom:32px;padding:28px 32px;background:#fff;border:1px solid var(--cream-dk);border-left:4px solid var(--gold);}
+.criteria-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:36px;}
+.crit-card{background:#fff;border:1px solid var(--cream-dk);padding:28px 24px;text-align:center;position:relative;overflow:hidden;}
+.crit-icon{font-size:28px;margin-bottom:12px;}
+.crit-grade{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:500;margin-bottom:10px;}
+.crit-cond{font-family:'Noto Serif KR',serif;font-size:13px;color:var(--gray);font-weight:300;line-height:1.8;margin-bottom:10px;}
+.crit-result{font-family:'Noto Serif KR',serif;font-size:12px;font-weight:400;padding:6px 10px;display:inline-block;}
+.prog-wrap{background:#fff;border:1px solid var(--cream-dk);padding:26px 32px;margin-bottom:28px;display:flex;align-items:center;gap:30px;}
+.prog-c{position:relative;flex-shrink:0;}
+.prog-c svg{transform:rotate(-90deg);}
+.p-track{fill:none;stroke:var(--cream-dk);stroke-width:7;}
+.p-fill{fill:none;stroke:var(--gold);stroke-width:7;stroke-linecap:round;transition:stroke-dashoffset .6s ease;}
+.p-num{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--burg);font-weight:400;}
+.prog-info{flex:1;}
+.prog-ttl{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--burg);margin-bottom:6px;}
+.prog-bg{background:var(--cream-dk);height:3px;border-radius:2px;margin:8px 0;}
+.prog-bar{height:100%;background:linear-gradient(90deg,var(--burg),var(--gold));border-radius:2px;transition:width .6s ease;width:0%;}
+.prog-meta{font-size:11px;color:var(--gray);font-family:'DM Sans',sans-serif;}
+.nf{background:#fff;border:1px solid var(--cream-dk);padding:24px 28px;margin-bottom:28px;display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end;}
+.fg{display:flex;flex-direction:column;gap:5px;}
+.fl{font-size:10.5px;letter-spacing:.15em;color:var(--gray);text-transform:uppercase;font-family:'DM Sans',sans-serif;}
+.fi{padding:9px 12px;border:1px solid var(--cream-dk);background:var(--cream);font-family:'Noto Serif KR',serif;font-size:13px;color:var(--charcoal);outline:none;min-width:148px;}
+.fi:focus{border-color:var(--gold);}
+.fs{padding:9px 12px;border:1px solid var(--cream-dk);background:var(--cream);font-family:'Noto Serif KR',serif;font-size:13px;color:var(--charcoal);outline:none;min-width:200px;cursor:pointer;-webkit-appearance:none;}
+.cl-sec{margin-bottom:28px;}
+.cl-sh{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.cl-st{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--burg);}
+.cl-cnt{font-size:11px;color:var(--gray);background:var(--cream-dk);padding:2px 8px;border-radius:20px;font-family:'DM Sans',sans-serif;}
+.ci{display:flex;align-items:flex-start;gap:12px;padding:13px 16px;background:#fff;border:1px solid var(--cream-dk);margin-bottom:2px;cursor:pointer;transition:var(--tr);user-select:none;}
+.ci:hover{border-color:var(--gold-pale);}
+.ci.dn{background:rgba(184,151,90,.025);}
+.ci-box{width:19px;height:19px;border:1.5px solid var(--cream-dk);flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:var(--tr);}
+.ci.dn .ci-box{background:var(--burg);border-color:var(--burg);}
+.ci-chk{display:none;color:#fff;font-size:11px;font-weight:700;}
+.ci.dn .ci-chk{display:block;}
+.ci-tx{flex:1;font-family:'Noto Serif KR',serif;font-size:13.5px;color:var(--charcoal);font-weight:300;line-height:1.7;}
+.ci.dn .ci-tx{color:var(--gray);text-decoration:line-through;text-decoration-color:rgba(184,151,90,.4);}
+.ci-sub{display:block;font-size:11.5px;color:rgba(140,123,114,.6);margin-top:2px;font-family:'DM Sans',sans-serif;}
+.ci-req{font-size:10px;letter-spacing:.07em;padding:2px 7px;background:rgba(92,31,46,.06);color:var(--burg);font-family:'DM Sans',sans-serif;flex-shrink:0;align-self:flex-start;margin-top:3px;}
+.sub-btn{display:block;width:100%;padding:17px;background:var(--burg);color:var(--gold-lt);border:none;font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:.2em;cursor:pointer;transition:var(--tr);margin-top:24px;}
+.sub-btn:hover{background:var(--burg-lt);}
+
+/* ─ PAGE 4: 매뉴얼 ─ */
+.m-layout{display:grid;grid-template-columns:200px 1fr;gap:30px;}
+.m-toc{position:sticky;top:22px;align-self:start;}
+.toc-hd{font-size:10px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--cream-dk);}
+.toc-b{display:flex;align-items:center;gap:8px;padding:11px 12px;width:100%;background:none;border:1px solid transparent;cursor:pointer;transition:var(--tr);font-family:'Noto Serif KR',serif;font-size:12.5px;color:var(--gray);font-weight:300;text-align:left;margin-bottom:2px;}
+.toc-b:hover{border-color:var(--cream-dk);color:var(--charcoal);background:#fff;}
+.toc-b.on{border-color:var(--burg);color:var(--burg);background:#fff;font-weight:400;}
+.toc-n{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--gold);font-weight:300;flex-shrink:0;width:18px;}
+.m-panel{display:none;animation:fadeUp .3s ease;}
+.m-panel.on{display:block;}
+.sub-tabs{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:14px;}
+.stb{padding:7px 13px;border:1px solid var(--cream-dk);background:#fff;font-family:'Noto Serif KR',serif;font-size:12px;color:var(--gray);cursor:pointer;transition:var(--tr);}
+.stb:hover{border-color:var(--gold-pale);}
+.stb.on{background:var(--burg);border-color:var(--burg);color:var(--gold-lt);}
+.sp{display:none;}
+.sp.on{display:block;}
+.m-img{width:100%;border:1px solid var(--cream-dk);display:block;}
+.m-desc{font-family:'Noto Serif KR',serif;font-size:13px;color:var(--gray);line-height:2;font-weight:300;margin-top:10px;padding:14px 18px;background:#fff;border:1px solid var(--cream-dk);}
+
+/* ─ PAGE 5: 서비스강령 ─ */
+.pledge-hero{background:var(--burg);padding:40px 48px;margin-bottom:36px;position:relative;overflow:hidden;}
+.pledge-hero::after{content:'"';position:absolute;right:16px;top:-36px;font-family:'Cormorant Garamond',serif;font-size:190px;color:rgba(184,151,90,.05);line-height:1;pointer-events:none;}
+.pledge-quote{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:300;font-style:italic;color:var(--gold-pale);line-height:1.9;max-width:560px;position:relative;white-space:pre-line;}
+.pledge-quote cite{display:block;font-size:10px;letter-spacing:.22em;color:rgba(184,151,90,.4);font-style:normal;margin-top:14px;text-transform:uppercase;}
+.pledge-list{margin-bottom:36px;}
+.pl-item{display:flex;align-items:flex-start;gap:24px;padding:24px 28px;background:#fff;border:1px solid var(--cream-dk);margin-bottom:4px;transition:var(--tr);}
+.pl-item:hover{border-color:var(--gold-pale);background:rgba(250,246,239,.5);}
+.pl-n{font-family:'Cormorant Garamond',serif;font-size:42px;color:var(--gold-pale);font-weight:300;line-height:1;flex-shrink:0;width:52px;}
+.pl-body{flex:1;padding-top:6px;}
+.pl-label{font-size:10px;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;margin-bottom:7px;font-family:'DM Sans',sans-serif;}
+.pl-tx{font-family:'Noto Serif KR',serif;font-size:16.5px;color:var(--burg);font-weight:500;line-height:1.7;}
+.pledge-oath{background:var(--burg-deep);padding:40px 48px;text-align:center;}
+.oath-label{font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.25em;color:var(--gold);margin-bottom:16px;}
+.oath-tx{font-family:'Noto Serif KR',serif;font-size:14px;color:rgba(240,227,200,.65);line-height:2.4;font-weight:300;max-width:460px;margin:0 auto;white-space:pre-line;}
+.sign-row2{display:none;}
+.sg{display:none;}
+.sign-row2{margin-top:28px;display:flex;justify-content:center;gap:52px;}
+.sg{text-align:center;}
+.sg-ln{width:130px;height:1px;background:rgba(184,151,90,.25);margin-bottom:7px;}
+.sg-lbl{font-family:'Cormorant Garamond',serif;font-size:11px;color:rgba(184,151,90,.35);font-style:italic;}
+
+/* ─ MOBILE ─ */
+.mob-tog{display:none;position:fixed;top:12px;left:12px;z-index:200;background:var(--burg-deep);border:1px solid rgba(184,151,90,.3);color:var(--gold);padding:8px 11px;cursor:pointer;font-size:14px;}
+@media(max-width:960px){
+  .sb{transform:translateX(-100%);transition:transform .4s ease;}
+  .sb.open{transform:translateX(0);}
+  .main{margin-left:0;}
+  .mob-tog{display:block;}
+  .hero,.pb{padding-left:22px;padding-right:22px;}
+  .hero{padding-top:64px;}
+  .h-ttl{font-size:27px;}
+  .brand-grid,.val-grid,.criteria-grid{grid-template-columns:1fr;}
+  .m-layout{grid-template-columns:1fr;}
+  .prog-wrap{flex-direction:column;gap:16px;}
+  .nf{flex-direction:column;}
+  .edu-banner{flex-direction:column;gap:12px;align-items:flex-start;}
+  .pl-item{flex-direction:column;gap:8px;}
+}
+</style>
+</head>
+<body>
+
+<button class="mob-tog" id="mobTog">☰</button>
+
+<nav class="sb" id="sb">
+  <div class="sb-hd">
+    <img src="images/logo_bb.png" class="sb-logo" alt="Belle &amp; Beau">
+    <div class="sb-sub">직원교육 &amp; 온보딩</div>
+  </div>
+  <ul class="nav" id="nav-list"></ul>
+  <div class="sb-ft">Belle &amp; Beau · La Terrasse de Paris · 만돈</div>
+</nav>
+
+<main class="main" id="main-wrap"></main>
+
+<script>
+// ══════════════════════════════════════════════
+//  이 아래는 수정하지 마세요 — 렌더링 엔진
+// ══════════════════════════════════════════════
+
+const PAGES = [
+  { id:'p1', num:'01', label:'회사소개',       sub:'About Belle & Beau' },
+  { id:'p2', num:'02', label:'교육 스케줄',     sub:'Training Schedule' },
+  { id:'p3', num:'03', label:'수료 체크리스트', sub:'Evaluation & Checklist' },
+  { id:'p4', num:'04', label:'브랜드 매뉴얼',   sub:'Brand Manual' },
+  { id:'p5', num:'05', label:'서비스 행동강령', sub:'Service Pledge' },
+];
+
+// ─ 네비 생성 ─
+const navEl = document.getElementById('nav-list');
+PAGES.forEach((p,i) => {
+  navEl.innerHTML += `<li><button class="nb${i===0?' on':''}" onclick="gp('${p.id}',this)">
+    <span class="nb-n">${p.num}</span>
+    <span class="nb-lbl">${p.label}<span class="nb-sub">${p.sub}</span></span>
+  </button></li>`;
+});
+
+// ─ 페이지 렌더 ─
+const wrap = document.getElementById('main-wrap');
+
+// PAGE 1: 회사소개
+wrap.innerHTML += `<div class="page on" id="p1">
+  <div class="hero">
+    <div class="h-eye">About Belle &amp; Beau</div>
+    <h1 class="h-ttl">우리가 만드는<br><em>벨앤보</em></h1>
+    <div class="h-div"></div>
+    <p class="h-desc">벨앤보가 어떤 회사인지, 우리가 어떤 가치를 추구하는지 담았습니다.</p>
+  </div>
+  <div class="pb">
+    <div class="ceo-card">
+      <div class="ceo-label">Belle &amp; Beau — Message from CEO</div>
+      <div class="ceo-body" id="ceo-body"></div>
+      <div class="sign-row">
+        <div class="sign-ln"></div>
+        <div class="sign-tx"><strong>Belle &amp; Beau</strong>대표 <span id="ceo-name"></span> 드림</div>
+      </div>
+    </div>
+    <div class="sec-ttl">Our Brands</div>
+    <div class="brand-grid" id="brand-grid"></div>
+    <div class="sec-ttl">Our Values</div>
+    <div class="val-grid" id="val-grid"></div>
+  </div>
+</div>`;
+
+// PAGE 2: 교육스케줄
+wrap.innerHTML += `<div class="page" id="p2">
+  <div class="hero">
+    <div class="h-eye">Training Schedule</div>
+    <h1 class="h-ttl">신규교육 <em>스케줄</em></h1>
+    <div class="h-div"></div>
+    <p class="h-desc">직무별 탭을 선택하면 해당 교육 일정을 확인할 수 있습니다.<br>모든 교육 수료 후 팀장 확인 시 공식 수료가 인정됩니다.</p>
+  </div>
+  <div class="pb">
+    <div class="edu-banner">
+      <div class="e-stat"><div class="e-num" id="edu-days"></div><div class="e-lbl">교육 기간 (일)</div></div>
+      <div class="e-div"></div>
+      <div class="e-stat"><div class="e-num" id="edu-pos"></div><div class="e-lbl">습득 포지션</div></div>
+      <div class="e-div"></div>
+      <div class="e-stat"><div class="e-num" id="edu-pass"></div><div class="e-lbl">통과 기준</div></div>
+      <div class="e-div"></div>
+      <div class="e-note" id="edu-note"></div>
+    </div>
+    <div class="tab-bar" id="train-tabs"></div>
+    <div id="train-panels"></div>
+  </div>
+</div>`;
+
+// PAGE 3: 수료평가
+wrap.innerHTML += `<div class="page" id="p3">
+  <div class="hero">
+    <div class="h-eye">Evaluation &amp; Checklist</div>
+    <h1 class="h-ttl">수료 <em>체크리스트</em></h1>
+    <div class="h-div"></div>
+    <p class="h-desc">교육 항목을 클릭해 완료 체크 후 하단에서 제출해주세요.<br>팀장 확인 후 공식 수료가 인정됩니다.</p>
+  </div>
+  <div class="pb">
+    <div class="sec-ttl">평가 기준</div>
+    <div class="eval-intro" id="eval-intro"></div>
+    <div class="criteria-grid" id="criteria-grid"></div>
+    <div class="sec-ttl">체크리스트</div>
+    <div class="nf">
+      <div class="fg"><label class="fl">이름</label><input class="fi" type="text" id="iname" placeholder="홍길동"></div>
+      <div class="fg">
+        <label class="fl">소속 브랜드</label>
+        <select class="fs" id="ibrand">
+          <option value="">선택해주세요</option>
+          <option>La Terrasse de Paris — 바리스타</option>
+          <option>La Terrasse de Paris — 파티시에</option>
+          <option>La Terrasse de Paris — 홀/서비스</option>
+          <option>만돈 — 홀/서비스</option>
+          <option>만돈 — 주방</option>
+        </select>
+      </div>
+      <div class="fg"><label class="fl">입사일</label><input class="fi" type="date" id="idate"></div>
+    </div>
+    <div class="prog-wrap">
+      <div class="prog-c">
+        <svg viewBox="0 0 100 100" width="84" height="84">
+          <circle class="p-track" cx="50" cy="50" r="40"/>
+          <circle class="p-fill" id="pf" cx="50" cy="50" r="40" stroke-dasharray="251.3" stroke-dashoffset="251.3"/>
+        </svg>
+        <div class="p-num" id="pn">0%</div>
+      </div>
+      <div class="prog-info">
+        <div class="prog-ttl">온보딩 수료 현황</div>
+        <div class="prog-bg"><div class="prog-bar" id="pb2"></div></div>
+        <div class="prog-meta" id="pm">0 / 0 항목 완료</div>
+      </div>
+    </div>
+    <div id="checklist-wrap"></div>
+  </div>
+</div>`;
+
+// PAGE 4: 매뉴얼
+wrap.innerHTML += `<div class="page" id="p4">
+  <div class="hero">
+    <div class="h-eye">Brand Manual</div>
+    <h1 class="h-ttl">브랜드 <em>매뉴얼</em></h1>
+    <div class="h-div"></div>
+    <p class="h-desc">좌측 목차를 클릭하면 해당 챕터를 확인할 수 있습니다.<br>이미지를 클릭하면 전체화면으로 확대됩니다.</p>
+  </div>
+  <div class="pb">
+    <div class="m-layout">
+      <div class="m-toc">
+        <div class="toc-hd">Contents</div>
+        <div id="toc-list"></div>
+      </div>
+      <div id="manual-panels"></div>
+    </div>
+  </div>
+</div>`;
+
+// PAGE 5: 서비스강령
+wrap.innerHTML += `<div class="page" id="p5">
+  <div class="hero">
+    <div class="h-eye">Service Pledge</div>
+    <h1 class="h-ttl">서비스 <em>행동강령</em></h1>
+    <div class="h-div"></div>
+    <p class="h-desc">벨앤보 모든 직원이 지켜야 할 서비스의 기준입니다.<br>입사 시 숙지하고, 매 순간 실천합니다.</p>
+  </div>
+  <div class="pb">
+    <div class="pledge-hero"><div class="pledge-quote" id="pledge-quote"></div></div>
+    <div class="pledge-list" id="pledge-list"></div>
+    <div class="pledge-oath">
+      <div class="oath-label">Belle &amp; Beau — Service Pledge</div>
+      <div class="oath-tx" id="oath-tx"></div>
+      <div class="sign-row2">
+        <div class="sg"><div class="sg-ln"></div><div class="sg-lbl">서명</div></div>
+        <div class="sg"><div class="sg-ln"></div><div class="sg-lbl">날짜</div></div>
+      </div>
+    </div>
+  </div>
+</div>`;
+
+// ══════════════════════════════════════════════
+//  CONFIG → DOM 주입
+// ══════════════════════════════════════════════
+
+document.addEventListener('DOMContentLoaded', () => {
+  const c = CONFIG;
+
+  // PAGE 1
+  document.getElementById('ceo-body').textContent = c.company.ceo_message;
+  document.getElementById('ceo-name').textContent = c.company.ceo_name;
+
+  const bg = document.getElementById('brand-grid');
+  c.company.brands.forEach(b => {
+    const imgHtml = b.type === 'logo'
+      ? `<div class="b-logo-wrap"><img src="${b.image}" alt="${b.name}"></div>`
+      : `<img src="${b.image}" class="b-img" alt="${b.name}">`;
+    bg.innerHTML += `<div class="b-card">${imgHtml}
+      <div class="b-info">
+        <div class="b-sub">${b.sub}</div>
+        <div class="b-name">${b.name}</div>
+        <div class="b-desc">${b.desc}</div>
+      </div></div>`;
+  });
+
+  const vg = document.getElementById('val-grid');
+  c.company.values.forEach(v => {
+    vg.innerHTML += `<div class="v-card">
+      <div class="v-en">${v.en}</div>
+      <div class="v-ko">${v.ko}</div>
+      <div class="v-desc">${v.desc}</div>
+    </div>`;
+  });
+
+  // PAGE 2
+  document.getElementById('edu-days').textContent = c.training.summary.days;
+  document.getElementById('edu-pos').textContent  = c.training.summary.positions;
+  document.getElementById('edu-pass').textContent = c.training.summary.pass_rate;
+  document.getElementById('edu-note').textContent = c.training.summary.note;
+
+  const tTabs   = document.getElementById('train-tabs');
+  const tPanels = document.getElementById('train-panels');
+  c.training.tabs.forEach((t, i) => {
+    tTabs.innerHTML += `<button class="tb${i===0?' on':''}" onclick="gt('${t.id}',this)">${t.label}</button>`;
+    if (t.pending) {
+      tPanels.innerHTML += `<div class="tp${i===0?' on':''}" id="${t.id}">
+        <div class="pend-box"><div class="pend-ico">✦</div>
+        <div class="pend-ttl">${t.label} 교육 스케줄</div>
+        <div class="pend-sub">자료 준비 중입니다 — 담당 매니저에게 문의해 주세요</div></div></div>`;
+    } else {
+      let rows = t.schedule.map(s => `<tr>
+        <td><span class="d-badge">${s.day}</span></td>
+        <td>${s.service}</td>
+        <td>${s.ojt}</td></tr>`).join('');
+      let poses = t.positions.map(p =>
+        `<div class="pos-card"><strong>${p.num} ${p.name}</strong>${p.desc}</div>`).join('');
+      tPanels.innerHTML += `<div class="tp${i===0?' on':''}" id="${t.id}">
+        <table class="sch-tbl">
+          <thead><tr>
+            <th style="width:68px">Day</th>
+            <th style="width:180px">서비스 교육<br><small style="opacity:.6;font-size:9px">담당: ${t.manager}</small></th>
+            <th>실무 OJT</th>
+          </tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+        <div style="background:#fff;border:1px solid var(--cream-dk);padding:16px 20px;margin-bottom:12px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--burg);margin-bottom:10px;">습득 포지션</div>
+          <div class="pos-grid">${poses}</div>
+        </div>
+      </div>`;
+    }
+  });
+
+  // PAGE 3
+  document.getElementById('eval-intro').textContent = c.evaluation.intro;
+  const cg = document.getElementById('criteria-grid');
+  c.evaluation.criteria.forEach(cr => {
+    cg.innerHTML += `<div class="crit-card">
+      <div class="crit-icon">${cr.icon}</div>
+      <div class="crit-grade" style="color:${cr.color}">${cr.grade}</div>
+      <div class="crit-cond">${cr.condition}</div>
+      <div class="crit-result" style="background:${cr.color}15;color:${cr.color}">${cr.result}</div>
+    </div>`;
+  });
+
+  const clWrap = document.getElementById('checklist-wrap');
+  let totalItems = 0;
+  c.evaluation.checklist_sections.forEach((sec, si) => {
+    totalItems += sec.items.length;
+    const items = sec.items.map((item, ii) => {
+      const idx = `ci_${si}_${ii}`;
+      return `<div class="ci" id="${idx}" onclick="tc(this)">
+        <div class="ci-box"><span class="ci-chk">✓</span></div>
+        <div class="ci-tx">${item.text}${item.sub?`<span class="ci-sub">${item.sub}</span>`:''}
+        </div>${item.required?'<div class="ci-req">필수</div>':''}
+      </div>`;
+    }).join('');
+    clWrap.innerHTML += `<div class="cl-sec">
+      <div class="cl-sh">
+        <div class="cl-st">${sec.title}</div>
+        <div class="cl-cnt" id="cnt_${si}">0/${sec.items.length}</div>
+      </div>${items}</div>`;
+  });
+  window._totalItems = totalItems;
+  updateProgress();
+
+  // PAGE 4
+  const tocList    = document.getElementById('toc-list');
+  const manPanels  = document.getElementById('manual-panels');
+  c.manual.chapters.forEach((ch, i) => {
+    tocList.innerHTML += `<button class="toc-b${i===0?' on':''}" onclick="gm('${ch.id}',this)">
+      <span class="toc-n">${ch.num}</span>${ch.title}</button>`;
+    const tabs = ch.tabs.map((t, j) =>
+      `<button class="stb${j===0?' on':''}" onclick="gs('${ch.id}','${ch.id}_s${j}',this)">${t.label}</button>`).join('');
+    const panels = ch.tabs.map((t, j) =>
+      `<div class="sp${j===0?' on':''}" id="${ch.id}_s${j}">
+        <img src="${t.image}" class="m-img" alt="${t.label}" onclick="lightbox(this)">
+        <div class="m-desc">${t.desc}</div>
+      </div>`).join('');
+    manPanels.innerHTML += `<div class="m-panel${i===0?' on':''}" id="${ch.id}">
+      ${ch.tabs.length > 1 ? `<div class="sub-tabs">${tabs}</div>` : ''}
+      ${panels}
+    </div>`;
+  });
+
+  // PAGE 5
+  const pq = document.getElementById('pledge-quote');
+  pq.innerHTML = CONFIG.pledge.quote.replace(/\n/g,'<br>') +
+    `<cite>Belle &amp; Beau Service Pledge</cite>`;
+  const pl = document.getElementById('pledge-list');
+  CONFIG.pledge.items.forEach((item, i) => {
+    pl.innerHTML += `<div class="pl-item">
+      <div class="pl-n">${item.num}</div>
+      <div class="pl-body">
+        <div class="pl-label">Pledge 0${i+1}</div>
+        <div class="pl-tx">${item.text}</div>
+      </div></div>`;
+  });
+  document.getElementById('oath-tx').innerHTML = CONFIG.pledge.oath.replace(/\n/g,'<br>');
+});
+
+// ══════════════════════════════════════════════
+//  인터랙션 함수
+// ══════════════════════════════════════════════
+
+function gp(id, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.nb').forEach(b => b.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('on');
+  if (window.innerWidth <= 960) document.getElementById('sb').classList.remove('open');
+  window.scrollTo(0, 0);
+}
+document.getElementById('mobTog').addEventListener('click', () => {
+  document.getElementById('sb').classList.toggle('open');
+});
+
+function gt(id, btn) {
+  document.querySelectorAll('#p2 .tp').forEach(p => p.classList.remove('on'));
+  btn.closest('.tab-bar').querySelectorAll('.tb').forEach(b => b.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('on');
+}
+
+function gm(id, btn) {
+  document.querySelectorAll('.m-panel').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.toc-b').forEach(b => b.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('on');
+}
+
+function gs(pid, sid, btn) {
+  const par = document.getElementById(pid);
+  par.querySelectorAll('.sp').forEach(p => p.classList.remove('on'));
+  par.querySelectorAll('.stb').forEach(b => b.classList.remove('on'));
+  document.getElementById(sid).classList.add('on');
+  btn.classList.add('on');
+}
+
+function tc(item) { item.classList.toggle('dn'); updateProgress(); }
+
+function updateProgress() {
+  const total = window._totalItems || 0;
+  const all   = document.querySelectorAll('#p3 .ci');
+  let done    = 0;
+  all.forEach(i => { if (i.classList.contains('dn')) done++; });
+  const pct = total > 0 ? Math.round(done / total * 100) : 0;
+  const C = 251.3;
+  const pf = document.getElementById('pf');
+  if (pf) pf.style.strokeDashoffset = C - (C * pct / 100);
+  const pn = document.getElementById('pn'); if (pn) pn.textContent = pct + '%';
+  const pb = document.getElementById('pb2'); if (pb) pb.style.width = pct + '%';
+  const pm = document.getElementById('pm'); if (pm) pm.textContent = done + ' / ' + total + ' 항목 완료';
+
+  CONFIG.evaluation.checklist_sections.forEach((sec, si) => {
+    const cnt = document.getElementById('cnt_' + si);
+    if (!cnt) return;
+    const sItems = Array.from(document.querySelectorAll(`#p3 .cl-sec`));
+    if (sItems[si]) {
+      const cis = sItems[si].querySelectorAll('.ci');
+      const d   = Array.from(cis).filter(c => c.classList.contains('dn')).length;
+      cnt.textContent = d + '/' + cis.length;
+    }
+  });
+}
+
+function doSubmit() {
+  const name  = document.getElementById('iname').value.trim();
+  const brand = document.getElementById('ibrand').value;
+  const date  = document.getElementById('idate').value;
+  if (!name)  { alert('이름을 입력해 주세요.'); return; }
+  if (!brand) { alert('소속 브랜드를 선택해 주세요.'); return; }
+  let fail = false;
+  document.querySelectorAll('#p3 .ci').forEach(item => {
+    if (item.querySelector('.ci-req') && !item.classList.contains('dn')) fail = true;
+  });
+  if (fail) { alert('⚠️  [필수] 항목을 모두 완료한 후 제출해 주세요.'); return; }
+  let done = 0;
+  document.querySelectorAll('#p3 .ci').forEach(i => { if (i.classList.contains('dn')) done++; });
+  const total = window._totalItems;
+
+  if (CONFIG.evaluation.google_sheet_url) {
+    fetch(CONFIG.evaluation.google_sheet_url, {
+      method:'POST', mode:'no-cors',
+      body: new URLSearchParams({ name, brand, date, done: String(done), total: String(total) })
+    }).catch(()=>{});
+    alert('✅  수료 체크리스트가 구글 시트에 기록되었습니다.\n\n이름: ' + name + '\n소속: ' + brand + '\n완료: ' + done + '/' + total + ' 항목\n\n팀장 확인 후 수료가 최종 인정됩니다.');
+  } else {
+    alert('✅  체크리스트 완료!\n\n이름: ' + name + '\n소속: ' + brand + '\n완료: ' + done + '/' + total + ' 항목\n\n팀장 확인 후 수료가 최종 인정됩니다.\n\n💡 Apps Script URL 연결 시 구글 시트 자동 기록됩니다.');
+  }
+}
+
+// 이미지 라이트박스
+function lightbox(img) {
+  const ov = document.createElement('div');
+  ov.style.cssText = 'position:fixed;inset:0;background:rgba(44,36,32,.92);z-index:999;display:flex;align-items:center;justify-content:center;cursor:zoom-out;';
+  const im = document.createElement('img');
+  im.src = img.src;
+  im.style.cssText = 'max-width:92vw;max-height:92vh;object-fit:contain;';
+  ov.appendChild(im);
+  ov.onclick = () => document.body.removeChild(ov);
+  document.body.appendChild(ov);
+}
+</script>
+</body>
+</html>
