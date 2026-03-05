@@ -431,6 +431,8 @@ body{font-family:'DM Sans','Noto Serif KR',sans-serif;background:var(--cream);co
 
 /* ─ MOBILE ─ */
 .mob-tog{display:none;position:fixed;top:12px;left:12px;z-index:200;background:var(--burg-deep);border:1px solid rgba(184,151,90,.3);color:var(--gold);padding:8px 11px;cursor:pointer;font-size:14px;}
+.horiz-scroll-wrap{margin-bottom:36px;}
+.horiz-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 @media(max-width:960px){
   .sb{transform:translateX(-100%);transition:transform .4s ease;}
   .sb.open{transform:translateX(0);}
@@ -445,6 +447,12 @@ body{font-family:'DM Sans','Noto Serif KR',sans-serif;background:var(--cream);co
   .nf{flex-direction:column;}
   .edu-banner{flex-direction:column;gap:12px;align-items:flex-start;}
   .pl-item{flex-direction:column;gap:8px;}
+  /* 복장안내·지참서류 — 3열 가로스크롤 고정 */
+  .horiz-scroll-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-left:-22px;margin-right:-22px;padding-left:22px;padding-right:22px;padding-bottom:8px;margin-bottom:36px;}
+  .horiz-grid{grid-template-columns:repeat(3,minmax(150px,1fr));min-width:490px;gap:12px;}
+  .horiz-scroll-wrap::-webkit-scrollbar{height:3px;}
+  .horiz-scroll-wrap::-webkit-scrollbar-track{background:var(--cream-dk);}
+  .horiz-scroll-wrap::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px;}
 }
 </style>
 </head>
@@ -500,7 +508,7 @@ wrap.innerHTML += `<div class="page on" id="p0">
   <div class="pb">
 
     <div class="sec-ttl">복장 안내</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px;">
+    <div class="horiz-scroll-wrap"><div class="horiz-grid">
       <div class="v-card">
         <div class="v-en">Top</div>
         <div class="v-ko">흰색 와이셔츠</div>
@@ -516,7 +524,7 @@ wrap.innerHTML += `<div class="page on" id="p0">
         <div class="v-ko">편한 운동화</div>
         <div class="v-desc">장시간 서서 근무하는 환경입니다. 발이 편한 운동화를 착용해주세요. 하이힐·샌들은 불가합니다.</div>
       </div>
-    </div>
+    </div></div><!-- /horiz 복장 -->
 
     <div style="background:#fff;border:1px solid var(--cream-dk);border-left:4px solid var(--gold);padding:22px 28px;margin-bottom:36px;font-family:'Noto Serif KR',serif;font-size:13.5px;color:var(--gray);line-height:2;font-weight:300;">
       💅 <strong style="color:var(--burg);">네일아트는 지양</strong>해주세요. 식품을 다루는 환경 특성상 위생을 위해 화려한 네일아트는 삼가주시기 바랍니다.<br>
@@ -524,7 +532,7 @@ wrap.innerHTML += `<div class="page on" id="p0">
     </div>
 
     <div class="sec-ttl">지참 서류</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px;">
+    <div class="horiz-scroll-wrap"><div class="horiz-grid">
       <div class="ceo-card" style="padding:28px 28px;margin-bottom:0;">
         <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold-pale);margin-bottom:12px;">01</div>
         <div style="font-family:'Noto Serif KR',serif;font-size:15px;font-weight:500;color:var(--burg);margin-bottom:8px;">보건증</div>
@@ -540,7 +548,7 @@ wrap.innerHTML += `<div class="page on" id="p0">
         <div style="font-family:'Noto Serif KR',serif;font-size:15px;font-weight:500;color:var(--burg);margin-bottom:8px;">통장 사본</div>
         <div style="font-family:'Noto Serif KR',serif;font-size:12.5px;color:var(--gray);line-height:1.9;font-weight:300;">급여 지급을 위한 본인 명의 통장 사본이 필요합니다.</div>
       </div>
-    </div>
+    </div></div><!-- /horiz 지참 -->
 
     <div class="sec-ttl">출근 시간 확인</div>
     <div style="background:var(--burg);padding:32px 36px;display:flex;align-items:center;gap:28px;">
