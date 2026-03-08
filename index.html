@@ -91,7 +91,7 @@ const CONFIG = {
     tabs: [
       {
         id: "t_barista",
-        label: "라테라스 바리스타",
+        label: "테라스 바리스타",
         manager: "권혜연 매니저",
         schedule: [
           {
@@ -117,10 +117,48 @@ const CONFIG = {
           { num: "④", name: "픽업·세팅", desc: "커피+케이크 트레이 세팅, 픽업 고객 응대 및 제품 설명" }
         ]
       },
-      { id: "t_patissier", label: "라테라스 파티시에", manager: "", schedule: [], positions: [], pending: true },
-      { id: "t_hall_t",    label: "라테라스 홀/서비스", manager: "", schedule: [], positions: [], pending: true },
-      { id: "t_hall_m",    label: "만돈 홀/서비스", manager: "", schedule: [], positions: [], pending: true },
-      { id: "t_kitchen",   label: "만돈 주방", manager: "", schedule: [], positions: [], pending: true }
+      {
+        id: "t_patissier", label: "테라스 파티시에", manager: "",
+        schedule: [
+          { day: "1", service: "오리엔테이션\n작업장 안전교육 + 온보딩교육 (0.5HR)", ojt: "주방 환경 파악 · 재료·장비 위치 확인\n위생 기준 숙지 · 선배 작업 전체 관찰" },
+          { day: "2", service: "제품 이해 교육\n케이크·디저트 종류별 특성 (0.5HR)", ojt: "재료 준비 관찰→동행 (0.5HR)\n제품 제조 관찰→동행 (0.5HR)\n포장·진열 관찰→동행 (0.5HR)" },
+          { day: "3", service: "위생·안전 복습\n체크리스트 항목 전체 리뷰 (0.5HR)", ojt: "오픈·클로징 동행 (0.5HR)\n수료 체크리스트 평가 (1HR)" }
+        ],
+        positions: [
+          { num: "①", name: "재료 준비", desc: "당일 필요 재료 계량·준비, 냉장·냉동 관리 기준 확인" },
+          { num: "②", name: "제품 제조", desc: "케이크·디저트 제조 기준 준수, 품질 확인 및 선배 확인" },
+          { num: "③", name: "포장·진열", desc: "쇼케이스 진열 기준, 테이크아웃 포장 완성도" },
+          { num: "④", name: "오픈·클로징", desc: "작업장 오픈 세팅, 마감 청소 및 위생 기준 달성" }
+        ]
+      },
+      {
+        id: "t_hall_m", label: "만돈 홀/서비스", manager: "",
+        schedule: [
+          { day: "1", service: "오리엔테이션\n매장투어 + 온보딩교육 (0.5HR)", ojt: "매장 전체 흐름 관찰\n홀 서비스 · 테이블 세팅 · 고객응대 관찰" },
+          { day: "2", service: "서비스교육 이론\n만돈 브랜드 · 메뉴 · 고객응대 기준 (0.5HR)", ojt: "고객 맞이·배웅 동행 (0.5HR)\n음식 서빙·테이블 관리 동행 (0.5HR)\n포스기·고객응대 관찰→동행 (0.5HR)" },
+          { day: "3", service: "서비스교육 실습\n고객응대 롤플레이 + 전체 복습 (0.5HR)", ojt: "오픈·클로징 동행 (0.5HR)\n수료 체크리스트 평가 (1HR)" }
+        ],
+        positions: [
+          { num: "①", name: "고객 맞이·배웅", desc: "입장 안내, 인사 멘트, 퇴장 배웅 및 감사 인사" },
+          { num: "②", name: "음식 서빙", desc: "음식 제공 순서, 테이블 번호 확인, 서빙 멘트" },
+          { num: "③", name: "테이블 관리", desc: "식사 중 테이블 컨디션 확인, 추가 요청 응대" },
+          { num: "④", name: "포스기·결제", desc: "주문 접수, 포스기 결제, 주문 복창 및 안내 멘트" }
+        ]
+      },
+      {
+        id: "t_kitchen", label: "만돈 주방", manager: "",
+        schedule: [
+          { day: "1", service: "오리엔테이션\n주방 안전교육 + 온보딩교육 (0.5HR)", ojt: "주방 장비 위치·용도 파악\n재료 종류·보관 기준 확인 · 선배 작업 관찰" },
+          { day: "2", service: "조리 이해 교육\n400시간 숙성·품질 기준 · 플레이팅 기준 (0.5HR)", ojt: "재료 준비 관찰→동행 (0.5HR)\n튀김·조리 관찰→동행 (0.5HR)\n플레이팅 관찰→동행 (0.5HR)" },
+          { day: "3", service: "위생·안전 복습\n체크리스트 항목 전체 리뷰 (0.5HR)", ojt: "오픈·클로징 동행 (0.5HR)\n수료 체크리스트 평가 (1HR)" }
+        ],
+        positions: [
+          { num: "①", name: "재료 준비", desc: "숙성 돈육 상태 확인, 튀김 재료 세팅, 소스류 준비" },
+          { num: "②", name: "튀김 조리", desc: "온도·시간 기준 준수, 품질 확인 후 팀장 승인" },
+          { num: "③", name: "플레이팅", desc: "만돈 기준 플레이팅, 소스·반찬 세팅 완성도" },
+          { num: "④", name: "오픈·클로징", desc: "주방 오픈 세팅, 마감 청소·위생·장비 점검 완료" }
+        ]
+      }
     ]
   },
 
@@ -191,40 +229,77 @@ const CONFIG = {
   // ────────────────────────────────────────────────
   // 04. 매뉴얼
   // ────────────────────────────────────────────────
+  // ────────────────────────────────────────────────
+  // 04. 브랜드 매뉴얼
+  // ────────────────────────────────────────────────
+  // 이미지 파일명 맞춰 같은 폴더에 넣으면 자동 표시됩니다.
+  // ────────────────────────────────────────────────
   manual: {
     chapters: [
-      {
-        id: "m1", num: "1", title: "기본 매뉴얼",
+
+      // ── La Terrasse de Paris ──────────────────────
+      { id:"m1", brand:"La Terrasse de Paris", num:"1", title:"기본 매뉴얼",
         tabs: [
-          { label: "1페이지 — 수칙 ①~⑥", image: "manual_1_1.jpg", desc: "출근 시간·인사 방법·호칭 규정·대답 방식·에티켓·복장 위생 기준 등 매장 근무의 가장 기본이 되는 행동 수칙입니다." },
-          { label: "2페이지 — 수칙 ⑦~⑫", image: "manual_1_2.jpg", desc: "테라스의 기본자세, 실수 처리 방법, 손씻기, 핸드폰 사용 규정, 개인 텀블러·식사 기준 등 세부 수칙입니다." }
-        ]
-      },
-      {
-        id: "m2", num: "2", title: "근무 매뉴얼",
+          { label:"1페이지 — 수칙 ①~⑥", image:"manual_1_1.jpg", desc:"출근 시간·인사 방법·호칭 규정·대답 방식·에티켓·복장 위생 기준 등 매장 근무의 가장 기본이 되는 행동 수칙입니다." },
+          { label:"2페이지 — 수칙 ⑦~⑫", image:"manual_1_2.jpg", desc:"테라스의 기본자세, 실수 처리 방법, 손씻기, 핸드폰 사용 규정, 개인 텀블러·식사 기준 등 세부 수칙입니다." }
+        ] },
+      { id:"m2", brand:"La Terrasse de Paris", num:"2", title:"근무 매뉴얼",
         tabs: [
-          { label: "근무 원칙", image: "manual_2.jpg", desc: "주시·집중, 원칙·정량, 청소·위생, 미소·친절, 예상·대비, 매너·배려 — 근무 중 실천할 6가지 핵심 원칙입니다." }
-        ]
-      },
-      {
-        id: "m3", num: "3", title: "고객응대 매뉴얼",
+          { label:"근무 원칙", image:"manual_2.jpg", desc:"주시·집중, 원칙·정량, 청소·위생, 미소·친절, 예상·대비, 매너·배려 — 근무 중 실천할 6가지 핵심 원칙입니다." }
+        ] },
+      { id:"m3", brand:"La Terrasse de Paris", num:"3", title:"고객응대 매뉴얼",
         tabs: [
-          { label: "① 기본응대", image: "manual_3_1.jpg", desc: "맞이·배웅 인사 멘트, 지나다닐 때 에티켓, 리뷰 확인 안내, 컴플레인 2단계 대응 프로세스를 포함합니다." },
-          { label: "② 픽업응대", image: "manual_3_2.jpg", desc: "픽업 고객 응대 멘트 세트(멘트+눈맞춤+손짓), 음료별 설명 방법, 트레이 2개 이상 처리 기준을 안내합니다." },
-          { label: "③ 리턴·홀정리", image: "manual_3_3.jpg", desc: "리턴 멘트 및 남은 음료 포장 안내, 홀 청소 확인 3종(테이블·의자·바닥), 상급자 보고 멘트를 포함합니다." },
-          { label: "④ 주문·계산", image: "manual_3_4.jpg", desc: "눈맞춤·미소, 매장 소개 멘트, 주문 대기 자세, 주문 복창, 결제 완료 및 이벤트 안내까지 전 과정입니다." }
-        ]
-      },
-      {
-        id: "m4", num: "4", title: "실전 매뉴얼",
+          { label:"① 기본응대", image:"manual_3_1.jpg", desc:"맞이·배웅 인사 멘트, 지나다닐 때 에티켓, 리뷰 확인 안내, 컴플레인 2단계 대응 프로세스를 포함합니다." },
+          { label:"② 픽업응대", image:"manual_3_2.jpg", desc:"픽업 고객 응대 멘트 세트(멘트+눈맞춤+손짓), 음료별 설명 방법, 트레이 2개 이상 처리 기준을 안내합니다." },
+          { label:"③ 리턴·홀정리", image:"manual_3_3.jpg", desc:"리턴 멘트 및 남은 음료 포장 안내, 홀 청소 확인 3종(테이블·의자·바닥), 상급자 보고 멘트를 포함합니다." },
+          { label:"④ 주문·계산", image:"manual_3_4.jpg", desc:"눈맞춤·미소, 매장 소개 멘트, 주문 대기 자세, 주문 복창, 결제 완료 및 이벤트 안내까지 전 과정입니다." }
+        ] },
+      { id:"m4", brand:"La Terrasse de Paris", num:"4", title:"바리스타 실전 매뉴얼",
         tabs: [
-          { label: "① 음료서브", image: "manual_4_1.jpg", desc: "복창 방법, 잔 위생 확인, 저울·제빙기·핫 디스펜서 사용법, 음료 완성 알림 멘트까지 음료 서브 전 과정입니다." },
-          { label: "② 트레이 셋팅1", image: "manual_4_2.jpg", desc: "음료별 받침 기준, TEA 핫 기본 셋팅, 포크·나이프 수량·방향, 디저트 2개 이상 셋팅, 도일리 사용 기준을 안내합니다." },
-          { label: "③ 트레이 셋팅2", image: "manual_4_3.jpg", desc: "음료만 2잔, 디저트+음료 조합별 트레이 셋팅 6가지 케이스를 실제 사진과 함께 상세히 안내합니다." },
-          { label: "④ 포장·진열", image: "manual_4_4.jpg", desc: "케이크 접시 담기·포장, 스콘·구움과자 진열 및 포장, 음료 포장, 트레이 정리 방법을 자재별로 안내합니다." },
-          { label: "⑤ 세척·정리", image: "manual_4_5.jpg", desc: "리턴바 분리 기준, 싱크대 분류, 세척기 주의사항, 그릇 넣기, 트롤리 정리, 포크·나이프·스푼 세척을 단계별로 안내합니다." }
-        ]
-      }
+          { label:"① 음료서브", image:"manual_4_1.jpg", desc:"복창 방법, 잔 위생 확인, 저울·제빙기·핫 디스펜서 사용법, 음료 완성 알림 멘트까지 음료 서브 전 과정입니다." },
+          { label:"② 트레이 셋팅1", image:"manual_4_2.jpg", desc:"음료별 받침 기준, TEA 핫 기본 셋팅, 포크·나이프 수량·방향, 디저트 2개 이상 셋팅, 도일리 사용 기준을 안내합니다." },
+          { label:"③ 트레이 셋팅2", image:"manual_4_3.jpg", desc:"음료만 2잔, 디저트+음료 조합별 트레이 셋팅 6가지 케이스를 실제 사진과 함께 상세히 안내합니다." },
+          { label:"④ 포장·진열", image:"manual_4_4.jpg", desc:"케이크 접시 담기·포장, 스콘·구움과자 진열 및 포장, 음료 포장, 트레이 정리 방법을 자재별로 안내합니다." },
+          { label:"⑤ 세척·정리", image:"manual_4_5.jpg", desc:"리턴바 분리 기준, 싱크대 분류, 세척기 주의사항, 그릇 넣기, 트롤리 정리, 포크·나이프·스푼 세척을 단계별로 안내합니다." }
+        ] },
+      { id:"m5", brand:"La Terrasse de Paris", num:"5", title:"파티시에 매뉴얼",
+        tabs: [
+          { label:"① 기본·위생 수칙", image:"manual_t_patissier_1.jpg", desc:"파티시에팀 기본 수칙, 위생 기준, 작업장 규정을 안내합니다." },
+          { label:"② 제조 실무", image:"manual_t_patissier_2.jpg", desc:"케이크·디저트 제조 실무 기준 및 품질 관리 매뉴얼입니다." },
+          { label:"③ 오픈·클로징", image:"manual_t_patissier_3.jpg", desc:"파티시에팀 오픈·클로징 체크리스트 및 작업 순서입니다." }
+        ] },
+
+      // ── 만돈 滿豚 ────────────────────────────────────
+      { id:"m6", brand:"만돈 滿豚", num:"6", title:"기본 매뉴얼",
+        tabs: [
+          { label:"1페이지", image:"manual_m_basic_1.jpg", desc:"만돈 기본 매뉴얼 1페이지입니다." },
+          { label:"2페이지", image:"manual_m_basic_2.jpg", desc:"만돈 기본 매뉴얼 2페이지입니다." },
+          { label:"3페이지", image:"manual_m_basic_3.jpg", desc:"만돈 기본 매뉴얼 3페이지입니다." }
+        ] },
+      { id:"m7", brand:"만돈 滿豚", num:"7", title:"서브 매뉴얼",
+        tabs: [
+          { label:"1페이지", image:"manual_m_sub_1.jpg", desc:"만돈 서브 매뉴얼 1페이지입니다." },
+          { label:"2페이지", image:"manual_m_sub_2.jpg", desc:"만돈 서브 매뉴얼 2페이지입니다." },
+          { label:"3페이지", image:"manual_m_sub_3.jpg", desc:"만돈 서브 매뉴얼 3페이지입니다." },
+          { label:"4페이지", image:"manual_m_sub_4.jpg", desc:"만돈 서브 매뉴얼 4페이지입니다." },
+          { label:"5페이지", image:"manual_m_sub_5.jpg", desc:"만돈 서브 매뉴얼 5페이지입니다." },
+          { label:"6페이지", image:"manual_m_sub_6.jpg", desc:"만돈 서브 매뉴얼 6페이지입니다." },
+          { label:"7페이지", image:"manual_m_sub_7.jpg", desc:"만돈 서브 매뉴얼 7페이지입니다." },
+          { label:"8페이지", image:"manual_m_sub_8.jpg", desc:"만돈 서브 매뉴얼 8페이지입니다." },
+          { label:"9페이지", image:"manual_m_sub_9.jpg", desc:"만돈 서브 매뉴얼 9페이지입니다." }
+        ] },
+      { id:"m8", brand:"만돈 滿豚", num:"8", title:"메인 매뉴얼",
+        tabs: [
+          { label:"1페이지", image:"manual_m_main_1.jpg", desc:"만돈 메인 매뉴얼 1페이지입니다." },
+          { label:"2페이지", image:"manual_m_main_2.jpg", desc:"만돈 메인 매뉴얼 2페이지입니다." },
+          { label:"3페이지", image:"manual_m_main_3.jpg", desc:"만돈 메인 매뉴얼 3페이지입니다." }
+        ] },
+      { id:"m9", brand:"만돈 滿豚", num:"9", title:"보조 매뉴얼",
+        tabs: [
+          { label:"1페이지", image:"manual_m_assist_1.jpg", desc:"만돈 보조 매뉴얼 1페이지입니다." },
+          { label:"2페이지", image:"manual_m_assist_2.jpg", desc:"만돈 보조 매뉴얼 2페이지입니다." }
+        ] }
+
     ]
   },
 
@@ -431,8 +506,6 @@ body{font-family:'DM Sans','Noto Serif KR',sans-serif;background:var(--cream);co
 
 /* ─ MOBILE ─ */
 .mob-tog{display:none;position:fixed;top:12px;left:12px;z-index:200;background:var(--burg-deep);border:1px solid rgba(184,151,90,.3);color:var(--gold);padding:8px 11px;cursor:pointer;font-size:14px;}
-.horiz-scroll-wrap{margin-bottom:36px;}
-.horiz-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 @media(max-width:960px){
   .sb{transform:translateX(-100%);transition:transform .4s ease;}
   .sb.open{transform:translateX(0);}
@@ -447,12 +520,46 @@ body{font-family:'DM Sans','Noto Serif KR',sans-serif;background:var(--cream);co
   .nf{flex-direction:column;}
   .edu-banner{flex-direction:column;gap:12px;align-items:flex-start;}
   .pl-item{flex-direction:column;gap:8px;}
-  /* 복장안내·지참서류 — 3열 가로스크롤 고정 */
-  .horiz-scroll-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-left:-22px;margin-right:-22px;padding-left:22px;padding-right:22px;padding-bottom:8px;margin-bottom:36px;}
-  .horiz-grid{grid-template-columns:repeat(3,minmax(150px,1fr));min-width:490px;gap:12px;}
-  .horiz-scroll-wrap::-webkit-scrollbar{height:3px;}
-  .horiz-scroll-wrap::-webkit-scrollbar-track{background:var(--cream-dk);}
-  .horiz-scroll-wrap::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px;}
+}
+
+/* ─ 복장안내 유니폼 탭 ─ */
+.utab-bar{display:flex;gap:6px;margin-bottom:22px;flex-wrap:wrap;}
+.utb{padding:9px 18px;border:1px solid var(--cream-dk);background:#fff;font-family:'Noto Serif KR',serif;font-size:12.5px;color:var(--gray);cursor:pointer;transition:var(--tr);font-weight:300;}
+.utb:hover{border-color:var(--gold);color:var(--charcoal);}
+.utb.on{background:var(--burg);border-color:var(--burg);color:var(--gold-lt);}
+.utb-brand{display:block;font-size:9px;letter-spacing:.15em;opacity:.65;margin-top:2px;}
+.upanel{display:none;animation:fadeUp .3s ease;}
+.upanel.on{display:block;}
+.uniform-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
+.uniform-img{width:100%;border:1px solid var(--cream-dk);display:block;cursor:zoom-in;}
+.uniform-rules{display:flex;flex-direction:column;gap:10px;}
+.ur-item{background:#fff;border:1px solid var(--cream-dk);border-left:3px solid var(--gold);padding:14px 16px;}
+.ur-label{font-size:9.5px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-bottom:5px;}
+.ur-val{font-family:'Noto Serif KR',serif;font-size:13px;color:var(--charcoal);font-weight:300;line-height:1.9;}
+.ur-val strong{color:var(--burg);font-weight:500;}
+.ur-val em{color:var(--gray);font-style:normal;font-size:11.5px;}
+.ur-caution{background:rgba(92,31,46,.04);border:1px solid rgba(92,31,46,.12);padding:14px 18px;font-family:'Noto Serif KR',serif;font-size:12.5px;color:var(--burg);line-height:1.9;font-weight:300;margin-top:6px;}
+
+/* ─ 매뉴얼 TOC 브랜드 구분선 ─ */
+.toc-brand-sep{padding:16px 12px 6px;font-size:9px;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;font-family:'DM Sans',sans-serif;border-top:1px solid var(--cream-dk);margin-top:8px;}
+.toc-brand-sep:first-child{border-top:none;margin-top:0;padding-top:4px;}
+
+/* ─ 매뉴얼 이미지 준비중 placeholder ─ */
+.m-img-ph{display:none;flex-direction:column;align-items:center;justify-content:center;background:#fff;border:1px dashed var(--cream-dk);min-height:260px;padding:40px 24px;text-align:center;}
+.m-img-ph-ico{font-family:'Cormorant Garamond',serif;font-size:44px;color:var(--gold-pale);margin-bottom:12px;font-style:italic;}
+.m-img-ph-ttl{font-family:'Noto Serif KR',serif;font-size:14px;color:var(--gray);font-weight:400;margin-bottom:10px;}
+.m-img-ph-fname{font-family:'DM Sans',monospace;font-size:12px;color:var(--burg);background:rgba(92,31,46,.06);border:1px solid rgba(92,31,46,.12);padding:6px 14px;letter-spacing:.04em;margin-bottom:8px;display:inline-block;}
+.m-img-ph-sub{font-size:11px;color:rgba(140,123,114,.5);font-family:'DM Sans',sans-serif;line-height:1.7;}
+
+/* ─ 교육스케줄 테이블 모바일 스크롤 ─ */
+.sch-tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+
+@media(max-width:960px){
+  .uniform-layout{grid-template-columns:1fr;}
+  .utab-bar{gap:4px;}
+  .utb{font-size:11.5px;padding:8px 12px;}
+  .sch-tbl{min-width:500px;}
+  .pos-grid{grid-template-columns:1fr !important;}
 }
 </style>
 </head>
@@ -508,31 +615,72 @@ wrap.innerHTML += `<div class="page on" id="p0">
   <div class="pb">
 
     <div class="sec-ttl">복장 안내</div>
-    <div class="horiz-scroll-wrap"><div class="horiz-grid">
-      <div class="v-card">
-        <div class="v-en">Top</div>
-        <div class="v-ko">흰색 와이셔츠</div>
-        <div class="v-desc">깔끔하게 다림질된 흰색 와이셔츠를 착용해주세요. 로고나 프린트가 없는 단색이어야 합니다.</div>
+    <div class="utab-bar">
+      <button class="utb on" onclick="gu('u_terrasse_b',this)">테라스 바리스타<span class="utb-brand">La Terrasse de Paris</span></button>
+      <button class="utb" onclick="gu('u_terrasse_p',this)">테라스 파티시에<span class="utb-brand">La Terrasse de Paris</span></button>
+      <button class="utb" onclick="gu('u_mandon_h',this)">만돈 홀/서비스<span class="utb-brand">만돈 滿豚</span></button>
+      <button class="utb" onclick="gu('u_mandon_k',this)">만돈 주방<span class="utb-brand">만돈 滿豚</span></button>
+    </div>
+    <div class="upanel on" id="u_terrasse_b">
+      <div class="uniform-layout">
+        <img src="uniform_terrasse_barista.jpg" class="uniform-img" alt="테라스 바리스타" onclick="lightbox(this)">
+        <div class="uniform-rules">
+          <div class="ur-item"><div class="ur-label">Hair</div><div class="ur-val">긴머리: <strong>하나로 단정히 묶기</strong><br>단발: 단정하게 정리 <em>(어깨 넘으면 반드시 묶기)</em></div></div>
+          <div class="ur-item"><div class="ur-label">이너</div><div class="ur-val"><strong>흰색</strong> 이너 착용</div></div>
+          <div class="ur-item"><div class="ur-label">유니폼 상의</div><div class="ur-val">여름: <strong>반팔 흰 셔츠</strong> / 겨울: 긴팔 흰 셔츠<br><em>브랜드·디자인 셔츠 불가 / 오염·얼룩·변색 불가</em><br>겨울 가디건: 단추 끝까지 잠그기, 풀어헤치기·허리묶기 불가</div></div>
+          <div class="ur-item"><div class="ur-label">유니폼 하의</div><div class="ur-val"><strong>주름 없는 검정 슬랙스</strong><br><em>흰 와이셔츠는 반드시 슬랙스 안에 넣어 착용</em></div></div>
+          <div class="ur-item"><div class="ur-label">신발</div><div class="ur-val"><strong>앞·뒤 뚫리지 않은 편안한 운동화</strong></div></div>
+          <div class="ur-item"><div class="ur-label">손톱</div><div class="ur-val">깔끔하게 관리 <em>(네일아트 시 파츠·아트 불가)</em></div></div>
+          <div class="ur-caution">✅ 유니폼 착용 후 거울 보며 <strong>복장점검</strong> 및 <strong>손씻기</strong>는 필수입니다</div>
+        </div>
       </div>
-      <div class="v-card">
-        <div class="v-en">Bottom</div>
-        <div class="v-ko">검은색 슬랙스</div>
-        <div class="v-desc">검은색 슬랙스 착용을 기본으로 합니다. 청바지·레깅스는 삼가주세요.</div>
+    </div>
+    <div class="upanel" id="u_terrasse_p">
+      <div class="uniform-layout">
+        <img src="uniform_terrasse_patissier.jpg" class="uniform-img" alt="테라스 파티시에" onclick="lightbox(this)">
+        <div class="uniform-rules">
+          <div class="ur-item"><div class="ur-label">Hair</div><div class="ur-val"><strong>헤어망 + 조리모</strong> 착용 필수<br><em>단발: 어깨 아래 길이는 반드시 묶기</em></div></div>
+          <div class="ur-item"><div class="ur-label">마스크</div><div class="ur-val"><strong>착용 필수</strong> (개인구비) — 코와 입 모두 가리기</div></div>
+          <div class="ur-item"><div class="ur-label">이너</div><div class="ur-val"><strong>흰색</strong> 착용</div></div>
+          <div class="ur-item"><div class="ur-label">유니폼 상의</div><div class="ur-val"><strong>깔끔한 조리복</strong> (단정하고 여민 상태), 명찰 필수<br><em>소매: 작업 안전을 위해 팔꿈치 중간까지 접기 허용</em></div></div>
+          <div class="ur-item"><div class="ur-label">하의·앞치마</div><div class="ur-val">단정한 <strong>청바지</strong> + <strong>흰색 앞치마 반드시 착용</strong><br>허리 중심으로 단단히 묶기 <em>(오염·얼룩 심한 앞치마 불가)</em></div></div>
+          <div class="ur-item"><div class="ur-label">손 위생</div><div class="ur-val">작업 시 <strong>위생장갑 필수</strong> / 오염 시 즉시 교체<br><em>팔찌·반지 등 작업 방해 악세서리 불가</em></div></div>
+          <div class="ur-item"><div class="ur-label">신발</div><div class="ur-val"><strong>미끄럼 방지 조리화</strong> 필수 <em>(슬리퍼·크록스 등 오픈형 불가)</em></div></div>
+          <div class="ur-caution">✅ 유니폼 착용 후 거울 보며 <strong>복장점검</strong> 및 <strong>손씻기</strong>는 필수입니다</div>
+        </div>
       </div>
-      <div class="v-card">
-        <div class="v-en">Shoes</div>
-        <div class="v-ko">편한 운동화</div>
-        <div class="v-desc">장시간 서서 근무하는 환경입니다. 발이 편한 운동화를 착용해주세요. 하이힐·샌들은 불가합니다.</div>
+    </div>
+    <div class="upanel" id="u_mandon_h">
+      <div class="uniform-layout">
+        <img src="uniform_mandon_hall.jpg" class="uniform-img" alt="만돈 홀/서비스" onclick="lightbox(this)">
+        <div class="uniform-rules">
+          <div class="ur-item"><div class="ur-label">Hair</div><div class="ur-val">단정하고 깔끔하게 <em>(장발: 집게핀 착용, 매장 구비)</em></div></div>
+          <div class="ur-item"><div class="ur-label">마스크</div><div class="ur-val"><strong>착용 필수</strong> (개인구비) — 코와 입 모두 가리기</div></div>
+          <div class="ur-item"><div class="ur-label">유니폼</div><div class="ur-val">매장 제공<br>상의: <strong>검정 반팔티</strong> / 하의: <strong>흑청바지</strong><br>명찰: 앞 포켓에 착용</div></div>
+          <div class="ur-item"><div class="ur-label">유니폼 안 착장</div><div class="ur-val">상의: 검정 반팔 티셔츠 / 하의: 흑청바지<br><strong>착용 후 출근</strong></div></div>
+          <div class="ur-item"><div class="ur-label">손톱</div><div class="ur-val">깔끔하게 관리</div></div>
+          <div class="ur-item"><div class="ur-label">신발</div><div class="ur-val">✅ 운동화, 구두 <em>/ ❌ 슬리퍼, 뒤꿈치 보이는 신발 불가</em></div></div>
+          <div class="ur-caution">✅ 유니폼 착용 후 거울 보며 <strong>복장점검</strong> 및 <strong>손씻기</strong>는 필수입니다</div>
+        </div>
       </div>
-    </div></div><!-- /horiz 복장 -->
-
-    <div style="background:#fff;border:1px solid var(--cream-dk);border-left:4px solid var(--gold);padding:22px 28px;margin-bottom:36px;font-family:'Noto Serif KR',serif;font-size:13.5px;color:var(--gray);line-height:2;font-weight:300;">
-      💅 <strong style="color:var(--burg);">네일아트는 지양</strong>해주세요. 식품을 다루는 환경 특성상 위생을 위해 화려한 네일아트는 삼가주시기 바랍니다.<br>
-      세부 복장 기준은 <strong style="color:var(--charcoal);">브랜드 매뉴얼 → 기본 매뉴얼</strong>을 참고해주세요.
+    </div>
+    <div class="upanel" id="u_mandon_k">
+      <div class="uniform-layout">
+        <img src="uniform_mandon_kitchen.jpg" class="uniform-img" alt="만돈 주방" onclick="lightbox(this)">
+        <div class="uniform-rules">
+          <div class="ur-item"><div class="ur-label">Hair</div><div class="ur-val"><strong>조리모 착용</strong> 후 머리 정리정돈<br><em>여성: 머리망 후 옆머리는 핀으로 고정</em></div></div>
+          <div class="ur-item"><div class="ur-label">마스크</div><div class="ur-val"><strong>착용 필수</strong> (개인구비) — 코와 입 모두 가리기</div></div>
+          <div class="ur-item"><div class="ur-label">유니폼</div><div class="ur-val">매장 제공<br>상의: <strong>검정 반팔티</strong>(튀김실) / <strong>흰색 반팔티</strong>(밀계빵)<br>하의: <strong>흑청바지</strong> / 명찰: 앞 포켓에 착용</div></div>
+          <div class="ur-item"><div class="ur-label">유니폼 안 착장</div><div class="ur-val">밀계빵: 흰색 반팔티 / 셋팅·튀김실: 검정 반팔티<br>하의: 흑청바지 — <strong>착용 후 출근</strong></div></div>
+          <div class="ur-item"><div class="ur-label">손톱</div><div class="ur-val">깔끔하게 관리</div></div>
+          <div class="ur-item"><div class="ur-label">신발</div><div class="ur-val">✅ 운동화, 구두 <em>/ ❌ 슬리퍼, 뒤꿈치 보이는 신발 불가</em></div></div>
+          <div class="ur-caution">✅ 유니폼 착용 후 거울 보며 <strong>복장점검</strong> 및 <strong>손씻기</strong>는 필수입니다</div>
+        </div>
+      </div>
     </div>
 
     <div class="sec-ttl">지참 서류</div>
-    <div class="horiz-scroll-wrap"><div class="horiz-grid">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px;">
       <div class="ceo-card" style="padding:28px 28px;margin-bottom:0;">
         <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold-pale);margin-bottom:12px;">01</div>
         <div style="font-family:'Noto Serif KR',serif;font-size:15px;font-weight:500;color:var(--burg);margin-bottom:8px;">보건증</div>
@@ -548,7 +696,7 @@ wrap.innerHTML += `<div class="page on" id="p0">
         <div style="font-family:'Noto Serif KR',serif;font-size:15px;font-weight:500;color:var(--burg);margin-bottom:8px;">통장 사본</div>
         <div style="font-family:'Noto Serif KR',serif;font-size:12.5px;color:var(--gray);line-height:1.9;font-weight:300;">급여 지급을 위한 본인 명의 통장 사본이 필요합니다.</div>
       </div>
-    </div></div><!-- /horiz 지참 -->
+    </div>
 
     <div class="sec-ttl">출근 시간 확인</div>
     <div style="background:var(--burg);padding:32px 36px;display:flex;align-items:center;gap:28px;">
@@ -804,14 +952,26 @@ document.addEventListener('DOMContentLoaded', () => {
   // PAGE 4
   const tocList    = document.getElementById('toc-list');
   const manPanels  = document.getElementById('manual-panels');
+  let lastBrand = null;
   c.manual.chapters.forEach((ch, i) => {
+    if (ch.brand !== lastBrand) {
+      tocList.innerHTML += `<div class="toc-brand-sep">${ch.brand}</div>`;
+      lastBrand = ch.brand;
+    }
     tocList.innerHTML += `<button class="toc-b${i===0?' on':''}" onclick="gm('${ch.id}',this)">
       <span class="toc-n">${ch.num}</span>${ch.title}</button>`;
     const tabs = ch.tabs.map((t, j) =>
       `<button class="stb${j===0?' on':''}" onclick="gs('${ch.id}','${ch.id}_s${j}',this)">${t.label}</button>`).join('');
     const panels = ch.tabs.map((t, j) =>
       `<div class="sp${j===0?' on':''}" id="${ch.id}_s${j}">
-        <img src="${t.image}" class="m-img" alt="${t.label}" onclick="lightbox(this)">
+        <img src="${t.image}" class="m-img" alt="${t.label}" onclick="lightbox(this)"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="m-img-ph">
+          <div class="m-img-ph-ico">✦</div>
+          <div class="m-img-ph-ttl">${t.label}</div>
+          <div class="m-img-ph-fname">${t.image}</div>
+          <div class="m-img-ph-sub">위 파일명으로 이미지를 폴더에 추가하면<br>자동으로 표시됩니다</div>
+        </div>
         <div class="m-desc">${t.desc}</div>
       </div>`).join('');
     manPanels.innerHTML += `<div class="m-panel${i===0?' on':''}" id="${ch.id}">
@@ -851,6 +1011,13 @@ function gp(id, btn) {
 document.getElementById('mobTog').addEventListener('click', () => {
   document.getElementById('sb').classList.toggle('open');
 });
+
+function gu(id, btn) {
+  document.querySelectorAll('#p0 .upanel').forEach(p => p.classList.remove('on'));
+  btn.closest('.utab-bar').querySelectorAll('.utb').forEach(b => b.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('on');
+}
 
 function gt(id, btn) {
   document.querySelectorAll('#p2 .tp').forEach(p => p.classList.remove('on'));
